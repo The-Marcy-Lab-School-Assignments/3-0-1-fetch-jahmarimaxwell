@@ -1,17 +1,7 @@
-import { post } from "fetch-mock";
-
 const userUrl = 'https://jsonplaceholder.typicode.com/users'
 
 export const checkResponseStatus = () => {
     return fetch(userUrl)
-        /*
-            .then((response) => {
-                console.log(response.url)
-                console.log(response.ok)
-                console.log(response.status)
-            });
-        */
-        // this is logging to the console, not returning
         .then((response) => {
             return {
                 status: response.status,
@@ -19,7 +9,7 @@ export const checkResponseStatus = () => {
                 url: response.url
             };
             // grabbing the reponse from fetch and returning each 
-            // properties
+            // property
         })
 }
 
@@ -32,30 +22,25 @@ export const getUsers = () => {
 }
 
 export const getUserPosts = (userId, maxNumPosts = 3) => {
-
-    return fetch(userUrl)
+    return fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
         .then(response => {
-            const posts = response.json();
+            return response.json();
             // storing response to a variable called posts
-            const postLimit = posts.slice(0, maxNumPosts);
-            // limits max post by `.slice` method
-            return postLimit;
-        });
+        })
+        .then(response => {
+             return response.slice(0, maxNumPosts);
+        
+        })
 }
 
 export const createNewUser = (newUserData) => {
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newUserData),
-    })
-    const newUser = response.json();
-    const id = 11;
-    return {
-        id,
-        username: newUser.username,
-        email: newUser.email,
+        return fetch(userUrl, {
+            method: 'POST',
+            body: JSON.stringify(newUserData),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then((response) => {
+            return response.json();
+        })
     };
-};
