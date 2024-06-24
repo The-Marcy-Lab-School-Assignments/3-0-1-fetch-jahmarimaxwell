@@ -31,12 +31,12 @@ export const setupPageBasics = (parentEl) => {
 };
 
 export const renderStatus = (statusDiv, statusInfoObj) => {
- const statusHeading = document.createElement('h2');
- statusHeading.setAttribute('id', 'status-heading');
+ const statusHeading = document.createElement("h2");
+ statusHeading.setAttribute("id", "status-heading");
  statusHeading.textContent = `Info on - ${statusInfoObj.url}`;
 
- const statusCode = document.createElement('p');
- statusCode.setAttribute('id', 'status-code');
+ const statusCode = document.createElement("p");
+ statusCode.setAttribute("id", "status-code");
  
  if (statusInfoObj.ok) {
    statusCode.textContent = `Status code: ${statusInfoObj.status}, OK!`
@@ -50,10 +50,10 @@ export const renderUsers = (usersUl, users) => {
   usersUl.innerHTML = '';
   // clears space inside usersUl
   users.forEach((user) => {
-    const li = document.createElement('li');
+    const li = document.createElement("li");
     // li.setAttribute("class", "user-card");
     li.classList.add("user-card");
-    const button = document.createElement('button');
+    const button = document.createElement("button");
     // button.setAttribute("data-user-id", user.id);
     button.dataset.userId = user.id;
     button.textContent = `Load ${user.username}'s posts`;
@@ -66,11 +66,11 @@ export const renderPosts = (postsUl, posts) => {
   postsUl.innerHTML = '';
   // clears space inside usersUl
   posts.forEach((postElement) => {
-    const h2 = document.createElement('h2');
+    const h2 = document.createElement("h2");
     h2.textContent = postElement.title;
-    const p = document.createElement('p');
+    const p = document.createElement("p");
     p.textContent = postElement.body;
-    const li = document.createElement('li');  
+    const li = document.createElement("li");  
 
     li.append(h2, p);
 
@@ -81,8 +81,8 @@ export const renderPosts = (postsUl, posts) => {
 export const renderNewUser = (newUserDiv, newUserInfo) => {
   newUserDiv.innerHTML = '';
  // clears space inside newUserDiv
-  const h2 = document.createElement('h2');
-  const p = document.createElement('p');
+  const h2 = document.createElement("h2");
+  const p = document.createElement("p");
   h2.textContent = newUserInfo.username;
   p.textContent = newUserInfo.email;
   newUserDiv.append(h2, p);

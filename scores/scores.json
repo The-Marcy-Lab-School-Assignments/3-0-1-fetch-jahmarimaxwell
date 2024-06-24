@@ -22,8 +22,8 @@
     },
     "App Tests": {
       "ApTe1": 1,
-      "ApTe2": 1,
-      "ApTe3": 1,
+      "ApTe2": 0,
+      "ApTe3": 0,
       "ApTe4": 0
     }
   },
@@ -73,8 +73,8 @@
   },
   "humanReadable": {
     "Fetch Function Tests": "8/8",
-    "finalTestScore": "FINAL SCORE: 19/20",
+    "finalTestScore": "FINAL SCORE: 17/20",
     "Render Functions Tests": "8/8",
-    "App Tests": "3/4"
+    "App Tests": "1/4"
   }
 }

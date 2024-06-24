@@ -31,5 +31,14 @@ export default function app(appDiv) {
    }
   })
   
-  //newUserForm.addEventListener()
+  newUserForm.addEventListener('submit', (event) => {
+   event.preventDefault();
+    const formData = new FormData(event.target);
+    const formObject = Object.fromEntries(formData);
+    createNewUser(formObject)
+      .then((newUserInfo) =>
+        renderNewUser(newUserDiv, newUserInfo)
+    )
+    event.target.reset;
+  })
 };
